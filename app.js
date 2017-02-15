@@ -53,7 +53,7 @@ var spotifyEndpoint = 'https://accounts.spotify.com/api/token';
 app.post('/swap', function (req, res, next) {
     var formData = {
             grant_type : 'authorization_code',
-            redirect_uri : clientCallback,
+            redirect_uri : req.body.redirect_uri || clientCallback,
             code : req.body.code
         },
         options = {
